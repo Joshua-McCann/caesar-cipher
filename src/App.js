@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Dial from "./components/Dial";
+import {useEffect, useState} from "react";
+import TranslationContext from "./context/TranslationContext";
+import TypeArea from "./components/TypeArea";
+import TranslateArea from "./components/TranslateArea";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    const [offset, setOffset] = useState('00');
+    const [text, setText] = useState('');
+    const [viewSize, setViewSize] = useState({width: window.innerWidth - 1, height: window.innerHeight - 1})
+
+    const translation = { offset, setOffset, text, setText };
+
+    useEffect(()=>{
+        const updateViewSize = ()=>setViewSize({width: window.innerWidth - 1, height: window.innerHeight - 1});
+        window.addEventListener('resize', updateViewSize);
+        return()=>window.removeEventListener('resize', updateViewSize);
+    })
+
+    return (
+        <div className="App">
+            <TranslationContext.Provider value={translation}>
+                <div className="view" id="view" style={viewSize}>
+                    <div className="area">
+                        <TypeArea/>
+                        <TranslateArea/>
+                    </div>
+                    <Dial/>
+                </div>
+            </TranslationContext.Provider>
+        </div>
   );
 }
 

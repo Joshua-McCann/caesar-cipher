@@ -1,0 +1,36 @@
+.dial {
+    background-color: #546873;
+    border-radius: 50%;
+    border: 4em #2a3439 solid;
+    position: relative;
+    top: 5%;
+    left: -16%;
+}
+
+.number {
+    color: grey;
+    font-size: 25px;
+    position: absolute;
+    font-family: Consolas, Calibri, serif;
+    font-weight: bolder;
+}
+
+.selector {
+    z-index: 999;
+    width: 4.3em;
+    height: 4.7em;
+}
+
+.selectable {
+    position: absolute;
+    top: -4.3em;
+}
+
+.selector-boarder {
+    border-radius: 1em;
+    border: 1.25em solid #55483F;
+    z-index: 998;
+    width: 1.8em;
+    height: 2.2em;
+}
+
