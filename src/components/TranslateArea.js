@@ -6,10 +6,10 @@ function TranslateArea() {
     const [message, setMessage] = useState('');
     const translation = useContext(TranslationContext);
 
-    const alBhed = ['E', 'P', 'S', 'T', 'I', 'W', 'K', 'N', 'U', 'V', 'G', 'C', 'L', 'R', 'Y', 'B', 'X', 'H', 'M', 'D', 'O', 'F', 'Z', 'Q', 'A', 'J', 'e', 'p', 's', 't', 'i', 'w', 'k', 'n', 'u', 'v', 'g', 'c', 'l', 'r', 'y', 'b', 'x', 'h', 'm', 'd', 'o', 'f', 'z', 'q', 'a', 'j'];
-    const bhedAl = ['Y', 'P', 'L', 'T', 'A', 'V', 'K', 'R', 'E', 'Z', 'G', 'M', 'S', 'H', 'U', 'B', 'X', 'N', 'C', 'D', 'I', 'J', 'F', 'Q', 'O', 'W', 'y', 'p', 'l', 't', 'a', 'v', 'k', 'r', 'e', 'z', 'g', 'm', 's', 'h', 'u', 'b', 'x', 'n', 'c', 'd', 'i', 'j', 'f', 'q', 'o', 'w']
-
     const translateAlBhed = useCallback((toAlBhed, char) =>  {
+        const alBhed = ['E', 'P', 'S', 'T', 'I', 'W', 'K', 'N', 'U', 'V', 'G', 'C', 'L', 'R', 'Y', 'B', 'X', 'H', 'M', 'D', 'O', 'F', 'Z', 'Q', 'A', 'J', 'e', 'p', 's', 't', 'i', 'w', 'k', 'n', 'u', 'v', 'g', 'c', 'l', 'r', 'y', 'b', 'x', 'h', 'm', 'd', 'o', 'f', 'z', 'q', 'a', 'j'];
+        const bhedAl = ['Y', 'P', 'L', 'T', 'A', 'V', 'K', 'R', 'E', 'Z', 'G', 'M', 'S', 'H', 'U', 'B', 'X', 'N', 'C', 'D', 'I', 'J', 'F', 'Q', 'O', 'W', 'y', 'p', 'l', 't', 'a', 'v', 'k', 'r', 'e', 'z', 'g', 'm', 's', 'h', 'u', 'b', 'x', 'n', 'c', 'd', 'i', 'j', 'f', 'q', 'o', 'w']
+
         const value = char.charCodeAt(0);
         const array = toAlBhed ? alBhed : bhedAl;
         if (value > 64 && value < 91){
@@ -19,7 +19,7 @@ function TranslateArea() {
             char = array[value - 71]
         }
         return char;
-    },[alBhed, bhedAl]);
+    },[]);
 
     const translate = useCallback((char) => {
         let value = char.charCodeAt(0);
