@@ -20,7 +20,7 @@ function Dial() {
         }
         window.addEventListener('resize', setView);
         return ()=>window.removeEventListener('resize', setView);
-    })
+    }, []);
 
     function calculatePosition(index) {
         const radius = dialSize.width/2 + 28;
